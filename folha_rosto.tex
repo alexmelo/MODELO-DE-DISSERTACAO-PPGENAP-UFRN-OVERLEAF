@@ -1,0 +1,51 @@
+
+% Folha de rosto — UFRN 2026
+% Os dados sao lidos de 1-dados/dados.tex. Nao e necessario editar este arquivo.
+\begin{titlepage}
+\thispagestyle{empty}
+
+\begin{center}
+\autor
+\end{center}
+
+\vspace*{4.0cm}
+
+\begin{center}
+\titulo
+\end{center}
+
+\vspace*{2.5cm}
+
+% Natureza do trabalho e orientadores
+\noindent\hfill
+\begin{minipage}{0.54\textwidth}
+    \setlength{\parindent}{0pt}
+    \justifying
+    \emergencystretch=2em
+
+    \noindent\naturezadotrabalho\par
+
+    \medskip
+
+    \noindent Orientador(a): \orientador\par
+    \ifdefempty{\coorientador}{}{\noindent Coorientador(a): \coorientador\par}
+\end{minipage}
+
+\vfill
+
+% Cidade e ano
+\begin{center}
+\cidade\par
+\ano
+\end{center}
+
+\vspace{1.4cm}
+
+% Licenca Creative Commons: so aparece com \LicencaCreativeCommons{sim} em 1-dados/dados.tex
+\ImprimirLicenca
+
+\end{titlepage}
+
+% A classe report reinicia o contador ao fim da titlepage.
+% A folha de rosto conta como página 1; a seguinte, como 2.
+\setcounter{page}{2}
