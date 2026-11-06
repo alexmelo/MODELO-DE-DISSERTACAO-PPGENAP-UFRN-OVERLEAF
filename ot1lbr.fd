@@ -1,8 +1,0 @@
-\ProvidesFile{ot1lbr.fd}[2026/10/12 Liberation Sans OT1 fallback]
-\DeclareFontFamily{OT1}{lbr}{}
-\DeclareFontShape{OT1}{lbr}{m}{n}{<->ssub*cmss/m/n}{}
-\DeclareFontShape{OT1}{lbr}{bx}{n}{<->ssub*cmss/bx/n}{}
-\DeclareFontShape{OT1}{lbr}{b}{n}{<->ssub*cmss/bx/n}{}
-\DeclareFontShape{OT1}{lbr}{m}{it}{<->ssub*cmss/m/sl}{}
-\DeclareFontShape{OT1}{lbr}{m}{sl}{<->ssub*cmss/m/sl}{}
-\endinput

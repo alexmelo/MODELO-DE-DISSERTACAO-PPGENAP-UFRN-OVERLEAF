@@ -30,7 +30,7 @@
 \usepackage{setspace}
 \usepackage{indentfirst}
 \onehalfspacing
-\setlength{\parindent}{1.25cm}
+\setlength{\parindent}{1.5cm}
 \setlength{\parskip}{0pt}
 
 % PACOTES GERAIS
@@ -122,23 +122,31 @@
 
 
 % TITULOS DOS CAPITULOS E SECOES
-\titleformat{\chapter}[hang]{\normalfont\bfseries\normalsize}{\thechapter}{.8em}{}
-\titlespacing*{\chapter}{0pt}{-0.78cm}{1.5\baselineskip}
+% Modelo BCZM/UFRN: um espaco simples entre numero e titulo; uma linha
+% em branco (entrelinha 1,5) depois do titulo primario e antes e depois
+% dos demais titulos.
+\newcommand{\ppgsepnumero}{0.3em}
+\titleformat{\chapter}[hang]{\normalfont\bfseries\normalsize}{\thechapter}{\ppgsepnumero}{}
+\titlespacing*{\chapter}{0pt}{-0.78cm}{\baselineskip}
 \titleformat{name=\chapter,numberless}[hang]{\normalfont\bfseries\normalsize\filcenter}{}{0pt}{}
-\titleformat{\section}{\normalfont\normalsize\bfseries}{\thesection}{1em}{}
-\titlespacing*{\section}{0pt}{1.5\baselineskip}{1.5\baselineskip}
-\titleformat{\subsection}{\normalfont\normalsize}{\thesubsection}{1em}{}
-\titlespacing*{\subsection}{0pt}{1.5\baselineskip}{1.5\baselineskip}
-\titleformat{\subsubsection}{\normalfont\normalsize\itshape}{\thesubsubsection}{1em}{}
-\titlespacing*{\subsubsection}{0pt}{1.5\baselineskip}{1.5\baselineskip}
-\titleformat{\paragraph}{\normalfont\normalsize}{\theparagraph}{1em}{}
-\titlespacing*{\paragraph}{0pt}{1.5\baselineskip}{1.5\baselineskip}
+\titleformat{\section}{\normalfont\normalsize\bfseries}{\thesection}{\ppgsepnumero}{}
+\titlespacing*{\section}{0pt}{\baselineskip}{\baselineskip}
+\titleformat{\subsection}{\normalfont\normalsize}{\thesubsection}{\ppgsepnumero}{}
+\titlespacing*{\subsection}{0pt}{\baselineskip}{\baselineskip}
+\titleformat{\subsubsection}{\normalfont\normalsize\itshape}{\thesubsubsection}{\ppgsepnumero}{}
+\titlespacing*{\subsubsection}{0pt}{\baselineskip}{\baselineskip}
+\titleformat{\paragraph}{\normalfont\normalsize}{\theparagraph}{\ppgsepnumero}{}
+\titlespacing*{\paragraph}{0pt}{\baselineskip}{\baselineskip}
 
 % TITULOS PRE-TEXTUAIS
 \newcommand{\pretitle}[1]{\chapter*{\MakeUppercase{#1}}}
 
 % LEGENDAS E TEXTOS DE EXEMPLO
-\newcommand{\fonte}[1]{\par\vspace{4pt}{\fontsize{11}{13.2}\selectfont\setstretch{1}\raggedright\noindent Fonte: #1\par}}
+% \fonte: obrigatoria, logo abaixo da ilustracao ou tabela.
+% \legenda: opcional, abaixo da fonte (explicacao de cores, simbolos etc.).
+\newcommand{\ppgtextoilustracao}[2]{{\fontsize{11}{13.2}\selectfont\setstretch{1}\raggedright\noindent #1: #2\par}}
+\newcommand{\fonte}[1]{\par\vspace{4pt}\ppgtextoilustracao{Fonte}{#1}}
+\newcommand{\legenda}[1]{\par\ppgtextoilustracao{Legenda}{#1}}
 \newcommand{\textopadrao}{Texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto.}
 
 % CITACOES LONGAS
@@ -151,15 +159,17 @@
 }{\end{list}\vspace{\baselineskip}}
 
 % FIGURAS, TABELAS, QUADROS E GRAFICOS
-\captionsetup{font={normalsize,singlespacing},labelfont=normalfont,justification=raggedright,singlelinecheck=false,labelsep=endash,position=top,skip=6pt}
+% Modelo BCZM/UFRN: titulo centralizado acima; fonte e legenda abaixo,
+% alinhadas a margem esquerda da ilustracao.
+\captionsetup{font={normalsize,singlespacing},labelfont=normalfont,justification=centering,singlelinecheck=false,labelsep=endash,position=top,skip=6pt}
 % Uso: \begin{ilustracao}{0.8\linewidth} ... \end{ilustracao}
 \newenvironment{ilustracao}[1]{%
   \par\centering\begin{minipage}{#1}\setlength{\parindent}{0pt}%
 }{%
   \end{minipage}\par
 }
-% Ativar quando houver figuras com legenda no ambiente figure.
-% \captionsetup[figure]{position=top}
+% Cabecalho de coluna em negrito e centralizado (quadros e tabelas).
+\newcommand{\titulocoluna}[1]{\centering\arraybackslash\textbf{#1}}
 \captionsetup[table]{position=top}
 \renewcommand{\thefigure}{\arabic{figure}}
 \renewcommand{\thetable}{\arabic{table}}

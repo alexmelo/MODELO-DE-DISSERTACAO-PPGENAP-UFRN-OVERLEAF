@@ -21,25 +21,27 @@ Nesta seção, apresentam-se os resultados da pesquisa e sua discussão à luz d
 
 Os resultados devem ser apresentados com objetividade, em sequência lógica, e acompanhados da interpretação do(a) autor(a). Tabelas e ilustrações complementam o texto, mas não o substituem: toda tabela ou ilustração deve ser citada e comentada antes de sua apresentação, como na Tabela~\ref{tab:exemplo}.
 
-% Exemplo de tabela (padrão IBGE): sem bordas laterais, com
-% traços horizontais no cabeçalho e no fechamento.
+% Exemplo de tabela (padrão IBGE e modelo BCZM/UFRN): sem bordas
+% laterais; traços horizontais no topo, no cabeçalho e no fechamento;
+% traços verticais apenas entre as colunas.
 % Em cada linha, & separa as células e \\ encerra a linha.
+% \titulocoluna{...} deixa o cabeçalho em negrito e centralizado.
 \begin{table}[htbp]
 \begin{ilustracao}{0.7\linewidth}
 \caption{Distribuição dos participantes por categoria}
 \label{tab:exemplo}
-\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lrr}
-\toprule
-\textbf{Categoria} & \textbf{Frequência} & \textbf{Percentual (\%)} \\
-\midrule
+\begin{tabularx}{\linewidth}{X|c|c}
+\hline
+\titulocoluna{Categoria} & \titulocoluna{Frequência} & \titulocoluna{Percentual (\%)} \\
+\hline
 Categoria A & 12 & 25,0 \\
 Categoria B & 18 & 37,5 \\
 Categoria C & 10 & 20,8 \\
 Categoria D &  8 & 16,7 \\
-\midrule
+\hline
 Total       & 48 & 100,0 \\
-\bottomrule
-\end{tabular*}
+\hline
+\end{tabularx}
 \fonte{Elaboração própria (\ano). Dados fictícios.}
 \end{ilustracao}
 \end{table}

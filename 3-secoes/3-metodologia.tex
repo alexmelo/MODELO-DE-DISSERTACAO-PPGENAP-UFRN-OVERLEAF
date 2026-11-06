@@ -34,12 +34,13 @@ Apresentam-se o local e o período de realização do estudo, a população ou o
 
 Descrevem-se os instrumentos utilizados, como questionários, roteiros de entrevista, protocolos de observação ou bases de dados, e a forma como foram elaborados, validados e aplicados. Os instrumentos elaborados pelo(a) autor(a) podem ser apresentados em apêndice (Apêndice~\ref{apd:instrumento}).
 
-A Figura~\ref{fig:etapas} ilustra o modo de inserir uma figura com título e fonte. O título é posicionado acima da imagem, e a fonte, logo abaixo, ambos alinhados às margens da ilustração.
+A Figura~\ref{fig:etapas} ilustra o modo de inserir uma figura com título e fonte. O título é centralizado acima da imagem, e a fonte, logo abaixo, alinhada à margem esquerda da ilustração.
 
 % Exemplo de figura. Ajuste a largura em ilustracao{...}.
 % Troque exemplo-figura.pdf pelo nome do seu arquivo (PDF, PNG ou JPG
 % salvo em 5-figuras/), sem o nome da pasta.
 % Figura de outra obra: \fonte{\citeonline[p.~10]{gil2008}.}
+% Legenda opcional, abaixo da fonte: \legenda{Explicação de cores ou símbolos.}
 \begin{figure}[htbp]
 \begin{ilustracao}{0.9\linewidth}
 \caption{Etapas da pesquisa}
@@ -61,6 +62,7 @@ Explicitam-se as técnicas empregadas no tratamento e na análise dos dados, os 
 % apresentam informações textuais; dados numéricos devem ser
 % apresentados em tabelas.
 % Em cada linha, & separa as células e \\ \hline encerra a linha.
+% \titulocoluna{...} deixa o cabeçalho em negrito e centralizado.
 \begin{quadro}[htbp]
 \centering
 \caption{Relação entre objetivos específicos, procedimentos e instrumentos}
@@ -68,7 +70,7 @@ Explicitam-se as técnicas empregadas no tratamento e na análise dos dados, os 
 \small
 \begin{tabularx}{\linewidth}{|>{\raggedright\arraybackslash}X|>{\raggedright\arraybackslash}X|>{\raggedright\arraybackslash}X|}
 \hline
-\textbf{Objetivo específico} & \textbf{Procedimento} & \textbf{Instrumento} \\ \hline
+\titulocoluna{Objetivo específico} & \titulocoluna{Procedimento} & \titulocoluna{Instrumento} \\ \hline
 Objetivo específico a & Procedimento de coleta ou de análise & Instrumento correspondente \\ \hline
 Objetivo específico b & Procedimento de coleta ou de análise & Instrumento correspondente \\ \hline
 Objetivo específico c & Procedimento de coleta ou de análise & Instrumento correspondente \\ \hline
