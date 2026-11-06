@@ -1,0 +1,177 @@
+% =========================================================
+% REFERENCIAS
+% Inclua aqui as obras citadas no texto. Somente as obras
+% efetivamente citadas aparecem na lista de referencias.
+%
+% Citacao no texto:
+%   \cite{chave}          -> (Autor, ano)
+%   \citeonline{chave}    -> Autor (ano)
+%   \citet{chave}         -> Autor (ano)  (mesmo que \citeonline)
+%   \cite[p.~10]{chave}   -> (Autor, ano, p. 10)
+%
+% Citacao de citacao (obra original primeiro, consultada depois):
+%   \apud{original}{consultada}        -> (Original, ano apud Consultada, ano)
+%   \apudonline{original}{consultada}  -> Original (ano apud Consultada, ano)
+%   \apudpag{original}{p.~117}{consultada}{p.~42}
+%        -> (Original, ano, p. 117 apud Consultada, ano, p. 42)
+%   \apudpagonline{original}{p.~117}{consultada}{p.~42}
+%        -> Original (ano, p. 117 apud Consultada, ano, p. 42)
+%      (deixe {} vazio para omitir uma das paginas)
+%
+% Autor institucional: author = {{\autorinstitucional{Nome}}}
+% Paginas: pages = {1-20}. DOI: doi = {10.xxxx/yyyy}.
+%
+% As entradas marcadas como MODELO servem apenas para
+% demonstrar o formato de cada tipo de documento e devem ser
+% removidas ou substituidas.
+% =========================================================
+
+% ---------------------------------------------------------
+% Normas tecnicas
+% ---------------------------------------------------------
+@book{abnt6023,
+  author       = {{\autorinstitucional{Associação Brasileira de Normas Técnicas}}},
+  title        = {{ABNT NBR} 6023},
+  subtitle     = {informação e documentação: referências: elaboração},
+  edition      = {3},
+  address      = {Rio de Janeiro},
+  publisher    = {ABNT},
+  year         = {2025}
+}
+
+@book{abnt10520,
+  author       = {{\autorinstitucional{Associação Brasileira de Normas Técnicas}}},
+  title        = {{ABNT NBR} 10520},
+  subtitle     = {informação e documentação: citações em documentos: apresentação},
+  edition      = {2},
+  address      = {Rio de Janeiro},
+  publisher    = {ABNT},
+  year         = {2023}
+}
+
+@book{abnt14724,
+  author       = {{\autorinstitucional{Associação Brasileira de Normas Técnicas}}},
+  title        = {{ABNT NBR} 14724},
+  subtitle     = {informação e documentação: trabalhos acadêmicos: apresentação},
+  edition      = {4},
+  address      = {Rio de Janeiro},
+  publisher    = {ABNT},
+  year         = {2024}
+}
+
+% ---------------------------------------------------------
+% Legislacao
+% ---------------------------------------------------------
+@misc{brasil1996,
+  author       = {{\autorinstitucional{Brasil}}},
+  title        = {Lei nº 9.394, de 20 de dezembro de 1996},
+  furtherresp  = {Estabelece as diretrizes e bases da educação nacional},
+  address      = {Brasília, DF},
+  publisher    = {Presidência da República},
+  url          = {https://www.planalto.gov.br/ccivil_03/leis/l9394.htm},
+  urlaccessdate= {1 jan. 2026},
+  year         = {1996}
+}
+
+@misc{brasil2016,
+  author       = {{\autorinstitucional{Brasil}}},
+  title        = {Resolução nº 510, de 7 de abril de 2016},
+  furtherresp  = {Dispõe sobre as normas aplicáveis a pesquisas em Ciências Humanas e Sociais},
+  address      = {Brasília, DF},
+  publisher    = {Conselho Nacional de Saúde},
+  url          = {https://conselho.saude.gov.br/resolucoes/2016/Reso510.pdf},
+  urlaccessdate= {1 jan. 2026},
+  year         = {2016}
+}
+
+% ---------------------------------------------------------
+% Livros
+% ---------------------------------------------------------
+@book{gil2008,
+  author       = {Gil, Antonio Carlos},
+  title        = {Métodos e técnicas de pesquisa social},
+  edition      = {6},
+  address      = {São Paulo},
+  publisher    = {Atlas},
+  year         = {2008}
+}
+
+@book{lakatos2003,
+  author       = {Lakatos, Eva Maria and Marconi, Marina de Andrade},
+  title        = {Fundamentos de metodologia científica},
+  edition      = {5},
+  address      = {São Paulo},
+  publisher    = {Atlas},
+  year         = {2003}
+}
+
+% ---------------------------------------------------------
+% MODELO - artigo de periodico (com DOI)
+% ---------------------------------------------------------
+@article{modeloartigo,
+  author       = {Sobrenome, Prenome},
+  title        = {Título do artigo},
+  subtitle     = {subtítulo},
+  journal      = {Nome do Periódico},
+  address      = {Cidade},
+  volume       = {10},
+  number       = {2},
+  pages        = {1-20},
+  year         = {2021},
+  doi          = {10.0000/exemplo.2021.0001}
+}
+
+% ---------------------------------------------------------
+% MODELO - capitulo de livro
+% ---------------------------------------------------------
+@incollection{modelocapitulo,
+  author       = {Sobrenome, Prenome},
+  title        = {Título do capítulo},
+  editor       = {Sobrenome, Prenome},
+  editortype   = {org.},
+  booktitle    = {Título do livro},
+  address      = {Cidade},
+  publisher    = {Editora},
+  pages        = {45-60},
+  year         = {2019}
+}
+
+% ---------------------------------------------------------
+% MODELO - dissertacao ou tese
+% ---------------------------------------------------------
+@mastersthesis{modelodissertacao,
+  author       = {Sobrenome, Prenome},
+  title        = {Título da dissertação},
+  pages        = {120},
+  pagename     = {f.},
+  type         = {Mestrado em Nome do Programa},
+  school       = {Nome da Universidade},
+  address      = {Cidade},
+  year         = {2020}
+}
+
+% ---------------------------------------------------------
+% MODELO - trabalho publicado em evento
+% ---------------------------------------------------------
+@inproceedings{modeloevento,
+  author       = {Sobrenome, Prenome},
+  title        = {Título do trabalho},
+  booktitle    = {Anais do Nome do Evento},
+  address      = {Cidade},
+  publisher    = {Editora ou Instituição},
+  pages        = {100-110},
+  year         = {2022}
+}
+
+% ---------------------------------------------------------
+% MODELO - documento em meio eletronico
+% ---------------------------------------------------------
+@misc{modeloonline,
+  author       = {{\autorinstitucional{Nome da Instituição}}},
+  title        = {Título do documento},
+  address      = {Cidade},
+  publisher    = {Nome da Instituição},
+  url          = {https://www.exemplo.org.br},
+  urlaccessdate= {1 jan. 2026},
+  year         = {2023}
+}

@@ -1,0 +1,114 @@
+% Listas pre-textuais: ilustracoes e tabelas automaticas; siglas e simbolos de 2-pre-textuais/. Nao editar.
+\makeatletter
+
+% ---------------------------------------------------------
+% Listas de ilustracoes e de tabelas
+% Cada lista so aparece se houver ao menos um item com legenda.
+% Os totais da compilacao anterior ficam no .aux; sem eles
+% (primeira compilacao), todas as listas sao incluidas.
+% ---------------------------------------------------------
+\newcommand*\ppg@listaauto[2]{%
+  \@ifundefined{ppg@total@#1}{#2}{\ifnum\csname ppg@total@#1\endcsname>\z@ #2\fi}}
+% Presenca (0 ou 1) nesta compilacao e na anterior; sem registro, a lista foi incluida.
+\newcommand*\ppg@gravartotal[1]{%
+  \@tempcnta=\ifnum\value{#1}>\z@\@ne\else\z@\fi
+  \@ifundefined{ppg@total@#1}{\@tempcntb\@ne}{%
+    \@tempcntb=\ifnum\csname ppg@total@#1\endcsname>\z@\@ne\else\z@\fi}%
+  \ifnum\@tempcnta=\@tempcntb\else\global\let\ppg@listamudou\@ne\fi
+  \immediate\write\@auxout{\gdef\string\ppg@total@#1{\the\value{#1}}}}
+\newcommand\ppg@gravartotais{%
+  \let\ppg@listamudou\z@
+  \@for\ppg@t:=figure,grafico,quadro,table\do{\ppg@gravartotal\ppg@t}%
+  \ifnum\ppg@listamudou>\z@
+    \ppg@aviso{Listas de ilustracoes ou de tabelas mudaram.\MessageBreak
+      Rerun to get the lists right (compile novamente)}%
+  \fi}
+
+% ---------------------------------------------------------
+% Abreviaturas, siglas e simbolos (2-pre-textuais/siglas.tex
+% e 2-pre-textuais/simbolos.tex). Abreviaturas e siglas saem
+% em ordem alfabetica; simbolos, na ordem cadastrada.
+% ---------------------------------------------------------
+\newcommand*\ppg@item[3]{\noindent #2\quad #3\par}
+\newcommand*\ppg@msgvazio[1]{\ppg@aviso{Item sem #1 em 2-pre-textuais/siglas.tex ou simbolos.tex;\MessageBreak complete ou apague a linha}}
+\newcommand*\ppg@msgrepetido[1]{\ppg@aviso{"#1" cadastrado duas vezes em 2-pre-textuais/siglas.tex}}
+\ExplSyntaxOn
+\seq_new:N \g__ppg_abreviaturas_seq
+\seq_new:N \g__ppg_siglas_seq
+\seq_new:N \g__ppg_simbolos_seq
+\str_new:N \l__ppg_chave_str
+% Chave de ordenacao: minusculas e sem acentos.
+\cs_new_protected:Npn \__ppg_chave:n #1
+  {
+    \str_set:Nx \l__ppg_chave_str { \str_lowercase:n {#1} }
+    \clist_map_inline:nn
+      { {á}{a}, {à}{a}, {â}{a}, {ã}{a}, {Á}{a}, {À}{a}, {Â}{a}, {Ã}{a},
+        {é}{e}, {ê}{e}, {É}{e}, {Ê}{e}, {í}{i}, {Í}{i},
+        {ó}{o}, {ô}{o}, {õ}{o}, {Ó}{o}, {Ô}{o}, {Õ}{o},
+        {ú}{u}, {ü}{u}, {Ú}{u}, {Ü}{u}, {ç}{c}, {Ç}{c} }
+      { \__ppg_trocar:nn ##1 }
+  }
+\cs_new_protected:Npn \__ppg_trocar:nn #1#2
+  { \str_replace_all:Nnn \l__ppg_chave_str {#1} {#2} }
+\cs_new_protected:Npn \__ppg_cadastrar:Nnnn #1#2#3#4
+  {
+    \bool_lazy_or:nnTF { \tl_if_blank_p:n {#3} } { \tl_if_blank_p:n {#4} }
+      { \tl_if_blank:nTF {#3} { \ppg@msgvazio{sigla/simbolo} } { \ppg@msgvazio{significado} } }
+      {
+        \__ppg_chave:n {#3}
+        \cs_if_exist:cT { ppg@chave@#2@ \l__ppg_chave_str }
+          { \ppg@msgrepetido{#3} }
+        \cs_gset_eq:cN { ppg@chave@#2@ \l__ppg_chave_str } \prg_do_nothing:
+        \seq_gput_right:Nx #1
+          { { \l__ppg_chave_str } \exp_not:n { {#3} {#4} } }
+      }
+  }
+\cs_new_protected:Npn \__ppg_ordenar:N #1
+  {
+    \seq_gsort:Nn #1
+      {
+        \str_compare:eNeTF { \use_i:nnn ##1 } > { \use_i:nnn ##2 }
+          { \sort_return_swapped: } { \sort_return_same: }
+      }
+  }
+% \__ppg_imprimir:Nn <lista> {titulo}: omitida se vazia.
+\cs_new_protected:Npn \__ppg_imprimir:Nn #1#2
+  {
+    \seq_if_empty:NF #1
+      {
+        \clearpage \pretitle {#2}
+        \seq_map_inline:Nn #1 { \ppg@item ##1 }
+      }
+  }
+\cs_new_protected:Npn \abreviatura #1#2
+  { \__ppg_cadastrar:Nnnn \g__ppg_abreviaturas_seq { abrev } {#1} {#2} }
+\cs_new_protected:Npn \sigla #1#2
+  { \__ppg_cadastrar:Nnnn \g__ppg_siglas_seq { sigla } {#1} {#2} }
+\cs_new_protected:Npn \simbolo #1#2
+  {
+    \bool_lazy_or:nnTF { \tl_if_blank_p:n {#1} } { \tl_if_blank_p:n {#2} }
+      { \tl_if_blank:nTF {#1} { \ppg@msgvazio{sigla/simbolo} } { \ppg@msgvazio{significado} } }
+      { \seq_gput_right:Nn \g__ppg_simbolos_seq { {} {#1} {#2} } }
+  }
+\cs_new_protected:Npn \ppg@listasmanuais
+  {
+    \InputIfFileExists { 2-pre-textuais/siglas.tex } { } { }
+    \InputIfFileExists { 2-pre-textuais/simbolos.tex } { } { }
+    \__ppg_ordenar:N \g__ppg_abreviaturas_seq
+    \__ppg_ordenar:N \g__ppg_siglas_seq
+    \__ppg_imprimir:Nn \g__ppg_abreviaturas_seq { Lista~de~abreviaturas }
+    \__ppg_imprimir:Nn \g__ppg_siglas_seq { Lista~de~siglas }
+    \__ppg_imprimir:Nn \g__ppg_simbolos_seq { Lista~de~símbolos }
+  }
+\ExplSyntaxOff
+
+% ---------------------------------------------------------
+% Montagem
+% ---------------------------------------------------------
+\ppg@listaauto{figure}{\clearpage\listoffigures}
+\ppg@listaauto{grafico}{\clearpage\listofgraficos}
+\ppg@listaauto{quadro}{\clearpage\listofquadros}
+\ppg@listaauto{table}{\clearpage\listoftables}
+\AtEndDocument{\ppg@gravartotais}
+\ppg@listasmanuais
+\makeatother

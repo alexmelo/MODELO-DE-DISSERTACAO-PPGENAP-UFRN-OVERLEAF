@@ -1,0 +1,10 @@
+\ProvidesFile{t1lbr.fd}[2026/10/12 Liberation Sans font family]
+\DeclareFontFamily{T1}{lbr}{}
+\DeclareFontShape{T1}{lbr}{m}{n}{<-> modelo/fontes/lbrr}{}
+\DeclareFontShape{T1}{lbr}{b}{n}{<-> modelo/fontes/lbrb}{}
+\DeclareFontShape{T1}{lbr}{bx}{n}{<-> modelo/fontes/lbrb}{}
+\DeclareFontShape{T1}{lbr}{m}{it}{<-> modelo/fontes/lbri}{}
+\DeclareFontShape{T1}{lbr}{m}{sl}{<-> modelo/fontes/lbri}{}
+\DeclareFontShape{T1}{lbr}{b}{it}{<-> modelo/fontes/lbrbi}{}
+\DeclareFontShape{T1}{lbr}{bx}{it}{<-> modelo/fontes/lbrbi}{}
+\endinput

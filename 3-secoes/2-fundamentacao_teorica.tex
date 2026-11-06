@@ -1,0 +1,67 @@
+% =========================================================
+% FUNDAMENTAÇÃO TEÓRICA
+% FINALIDADE: apresentar os conceitos, as teorias e os estudos que
+%   sustentam a pesquisa.
+% ESCREVA: uma discussão organizada por temas, que relacione os autores,
+%   e não uma sequência de resumos. O título pode ser trocado por outro
+%   mais específico (por exemplo, REFERENCIAL TEÓRICO ou o próprio tema).
+% CUIDADO: cada chave usada em \cite ou \citeonline precisa existir em
+%   4-referencias/referencias.bib.
+% EXEMPLOS NESTE ARQUIVO: citações indiretas e diretas (ABNT NBR 10520),
+%   citação longa e nota de rodapé.
+% =========================================================
+
+\chapter{FUNDAMENTAÇÃO TEÓRICA}
+\label{cap:fundamentacao}
+
+A fundamentação teórica apresenta os conceitos, as teorias e os estudos que sustentam a pesquisa. Não se trata de uma sequência de resumos de obras, mas de uma discussão organizada por temas, na qual o(a) autor(a) relaciona as contribuições dos autores consultados, aponta convergências e divergências e explicita a perspectiva adotada no trabalho.
+
+\section{Primeiro eixo temático}
+\label{sec:eixo1}
+
+% Organize a seção em subseções temáticas. Os parágrafos abaixo
+% exemplificam as formas de citação mais usuais:
+%   \cite{gil2008}            -> (Gil, 2008)
+%   \citeonline{gil2008}      -> Gil (2008)
+%   \citet{gil2008}           -> Gil (2008)  (mesmo que \citeonline)
+%   \cite[p.~15]{gil2008}     -> (Gil, 2008, p. 15)
+%   Citação de citação: primeiro a obra ORIGINAL (não lida), depois a
+%   obra CONSULTADA (a que você leu); as duas precisam estar no .bib:
+%   \apud{original}{consultada}             -> (Original, ano apud Consultada, ano)
+%   \apudonline{original}{consultada}       -> Original (ano apud Consultada, ano)
+%   \apud[p.~10]{original}{consultada}      -> (Original, ano apud Consultada, ano, p. 10)
+%   Com página da obra original e/ou da consultada (deixe {} vazio para omitir):
+%   \apudpag{original}{p.~117}{consultada}{}       -> (Original, ano, p. 117 apud Consultada, ano)
+%   \apudpag{original}{}{consultada}{p.~42}        -> (Original, ano apud Consultada, ano, p. 42)
+%   \apudpag{original}{p.~117}{consultada}{p.~42}  -> (Original, ano, p. 117 apud Consultada, ano, p. 42)
+%   Forma narrativa, com os mesmos quatro argumentos:
+%   \apudpagonline{original}{p.~117}{consultada}{}       -> Original (ano, p. 117 apud Consultada, ano)
+%   \apudpagonline{original}{p.~117}{consultada}{p.~42}  -> Original (ano, p. 117 apud Consultada, ano, p. 42)
+%   \enquote{texto}           -> “texto” (aspas da citação direta curta)
+% Exemplo de subseção (apague o % do início da linha para usar):
+% \subsection{Título da subseção}
+As citações seguem a ABNT NBR 10520 \cite{abnt10520}, e as referências, a ABNT NBR 6023 \cite{abnt6023}. A apresentação gráfica do trabalho observa a ABNT NBR 14724 \cite{abnt14724}.
+
+A citação indireta reproduz a ideia de outro autor com as palavras de quem escreve e dispensa aspas. A indicação da fonte pode integrar a frase, como em \citeonline{gil2008}, ou aparecer ao final, entre parênteses \cite{lakatos2003}. Quando houver mais de uma obra, as chaves são separadas por vírgula \cite{gil2008,lakatos2003}.
+
+A citação direta curta, de até três linhas, é transcrita entre aspas duplas, com indicação da página: segundo \citeonline[p.~15]{modeloartigo}, \enquote{transcrição literal do trecho citado}. A mesma citação pode ser apresentada com a fonte entre parênteses ao final: \enquote{transcrição literal do trecho citado} \cite[p.~15]{modeloartigo}.
+
+A citação direta com mais de três linhas é destacada com recuo de 4~cm da margem esquerda, em fonte menor, espaçamento simples e sem aspas:
+
+\begin{citacaolonga}
+Transcrição literal de trecho com mais de três linhas. O texto citado mantém a redação, a ortografia e a pontuação do original. Supressões são indicadas por reticências entre colchetes [...], e interpolações ou comentários do(a) autor(a) da dissertação também aparecem entre colchetes. A indicação da fonte segue o sistema autor-data \cite[p.~52]{modelocapitulo}.
+\end{citacaolonga}
+
+\section{Segundo eixo temático}
+\label{sec:eixo2}
+
+Notas de rodapé podem ser empregadas para esclarecimentos que interromperiam a leitura do texto principal.\footnote{As notas explicativas são numeradas em algarismos arábicos, com numeração consecutiva em todo o documento.} Recomenda-se usá-las com moderação.
+
+Os resultados de outras pesquisas sobre o tema, como os apresentados em dissertações \cite{modelodissertacao} e em trabalhos publicados em eventos \cite{modeloevento}, ajudam a situar o problema investigado e a delimitar a contribuição do estudo. Documentos legais e normativos também podem integrar a fundamentação, a exemplo da Lei de Diretrizes e Bases da Educação Nacional \cite{brasil1996}, assim como documentos disponíveis em meio eletrônico \cite{modeloonline}.
+
+\section{Síntese da seção}
+\label{sec:sintese_fundamentacao}
+
+% Opcional. Encerre a seção indicando como os conceitos
+% discutidos orientam a metodologia e a análise dos dados.
+Ao final da seção, recomenda-se uma síntese que articule os conceitos discutidos e indique de que modo eles orientam as escolhas metodológicas e a análise dos dados.

@@ -1,0 +1,91 @@
+% =========================================================
+% MODELO DE DISSERTACAO - PPGENAP/CERES/UFRN
+% Compilador: pdfLaTeX
+%
+% NAO EDITE ESTE ARQUIVO.
+%
+% Para comecar:
+%   1. Leia as instrucoes em LEIA-ME.pdf.
+%   2. Preencha seus dados em 1-dados/dados.tex.
+%   3. Escreva seu trabalho nas pastas numeradas:
+%      2-pre-textuais, 3-secoes, 4-referencias, 5-figuras e
+%      6-apendices-anexos.
+%
+% Para gerar o PDF, clique em Recompile.
+% =========================================================
+
+\documentclass[12pt,a4paper,oneside]{report}
+
+% Configuracoes gerais
+\input{modelo/validacao}
+\CarregarDados
+\input{modelo/estilo}
+
+\begin{document}
+
+% =========================================================
+% CAPA - NAO ENTRA NA CONTAGEM
+% =========================================================
+
+\hypersetup{pageanchor=false}
+\pagenumbering{gobble}
+
+\input{modelo/capa}
+
+\clearpage
+
+% =========================================================
+% ELEMENTOS PRE-TEXTUAIS
+% Contados a partir da folha de rosto,
+% mas sem exibicao dos numeros.
+% Elementos opcionais: sim ou nao em 1-dados/dados.tex.
+% =========================================================
+
+\pagenumbering{arabic}
+\paginassemnumero
+
+\input{modelo/folha_rosto}
+\input{modelo/ficha_catalografica}
+\input{modelo/folha_aprovacao}
+\IncluirOpcional{dedicatoria}{2-pre-textuais/dedicatoria}{Dedicatoria}
+\IncluirOpcional{agradecimentos}{2-pre-textuais/agradecimentos}{Agradecimentos}
+\IncluirOpcional{epigrafe}{2-pre-textuais/epigrafe}{Epigrafe}
+\IncluirObrigatorio{2-pre-textuais/resumo}{Resumo}
+\IncluirObrigatorio{2-pre-textuais/abstract}{Abstract}
+\input{modelo/listas}
+
+% =========================================================
+% SUMARIO
+% Continua a contagem, sem exibir o numero.
+% =========================================================
+
+\clearpage
+\tableofcontents
+
+% =========================================================
+% ELEMENTOS TEXTUAIS
+% Exibe o numero real da pagina no canto superior direito
+% a partir da introducao, sem reiniciar a contagem.
+% =========================================================
+
+\clearpage
+
+\paginascomnumero
+\hypersetup{pageanchor=true}
+
+% Secoes na ordem de 3-secoes/ordem-das-secoes.tex
+\IncluirSecoes
+
+% =========================================================
+% ELEMENTOS POS-TEXTUAIS
+% Mantem a numeracao sequencial.
+% =========================================================
+
+% REFERENCIAS - geradas automaticamente a partir do .bib
+\clearpage
+\bibliography{modelo/abnt-opcoes,4-referencias/referencias}
+
+\IncluirSeExistir{6-apendices-anexos/apendices}{Apendices}
+\IncluirSeExistir{6-apendices-anexos/anexos}{Anexos}
+
+\end{document}
